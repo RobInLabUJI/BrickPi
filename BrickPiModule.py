@@ -100,9 +100,8 @@ class BrickPiRobot:
         self.camera.close()
         
     def detecta_foc(self, img, lower=180, upper=255):
-        # region = img[250:,:,:]
         lower_tuple = (lower,0,0)
-        upper_tuple = (upper,50,50)
+        upper_tuple = (upper,100,100)
         mask = cv2.inRange(img, lower_tuple, upper_tuple)
         _, cnt, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         if cnt:
